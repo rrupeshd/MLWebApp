@@ -4,7 +4,7 @@ fonttools==4.31.2
 gitdb==4.0.9
 GitPython==3.1.27
 idna==3.3
-numpy==1.22.3
+numpy==1.21.1
 pandas==1.4.1
 plotly==5.6.0
 pyparsing==3.0.7
