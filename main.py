@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-import time
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -49,7 +48,6 @@ if (st.button("About Me")):
         image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~THW33CM8UBUH/CERTIFICATE_LANDING_PAGE~THW33CM8UBUH.jpeg"
         st.image(image, caption="Tools for Data Science", output_format="auto")
 
-    st.snow()
 
 with st.expander("Projects"):
 #if (st.button("Projects")):
