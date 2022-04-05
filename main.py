@@ -282,7 +282,7 @@ if (st.button("About Me")):
     with col12:
         with st.container():
             st.subheader("Hello, welcome to my first web application created using Streamlit on Python.\n Here, "
-                         "I will posting some of learnings in Analytics field on the go. For example last week I learnt about Regression and"
+                         "I will posting some of learnings in Analytics field on the go. For example last week I learnt about Regression and "
                          "then about how about presenting it to the users. From that I got the idea of creating this app online. "
                          "Below are my few online certification done in this field. Also, I have added few projects to test as well. "
                          "Feel free to explore and play around and do share your feedback.")
