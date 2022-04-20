@@ -201,8 +201,11 @@ if st.checkbox("Projects"):
         elif(Fuel_Type == 'Diesel'):
             Fuel_Type_Petrol = 0
             Fuel_Type_Diesel = 1
+        elif (Fuel_Type == 'CNG'):
+            Fuel_Type_Petrol = 0
+            Fuel_Type_Diesel = 0
 
-        Year = 2020 - Year
+        Year = 2022 - Year
 
         Seller_Type_Individual = st.sidebar.selectbox(
             'Are you A Dealer or Individual',
@@ -257,13 +260,13 @@ if st.checkbox("Projects"):
 
             with col1:
                 bar_df = df.Fuel_Type.value_counts()
-                st.bar_chart(bar_df,width=10, height=200)
+                st.bar_chart(bar_df, width=10, height=200)
             with col2:
                 bar_df = df.Transmission.value_counts()
-                st.bar_chart(bar_df,width=10, height=200)
+                st.bar_chart(bar_df, width=10, height=200)
             with col3:
                 bar_df = df.Seller_Type.value_counts()
-                st.bar_chart(bar_df,width=10, height=200)
+                st.bar_chart(bar_df, width=10, height=200)
 
     if Project == 'Decision Tree':
         st.write(
