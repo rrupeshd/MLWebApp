@@ -40,7 +40,6 @@ def Pro4():
         from sklearn.ensemble import RandomForestClassifier
         from sklearn.naive_bayes import GaussianNB
         from sklearn.ensemble import AdaBoostClassifier
-        from sklearn.metrics import plot_confusion_matrix
 
         model_pipeline = []
         model_pipeline.append(LogisticRegression(solver='liblinear'))
@@ -77,29 +76,31 @@ def Pro4():
             'Select Model',
             (model_list)
         )
-        st.subheader('Accuracy')
-        st.write('Accuracy is the most straightforward indicator of the model performance. It measure the percentage of accurate predictions: accuracy = (true positive + true negative) / (true positive + false positive + false negative + false positive)')
-        score=float(result_df.Accuracy[result_df.Model==selectmodel])*100
-        st.write(selectmodel + ' model accuracy score with feature scaling and PCA is : ' + str(score) + '%')
-        score=float(result_df.AUC[result_df.Model==selectmodel])*100
-        st.subheader('ROC & AUC')
-        st.write('ROC is the plot of true positive rate against false positive rate at various classification threshold. AUC is the area under the ROC curve, and higher AUC indicates better model performance.')
-        st.write(selectmodel + ' model AUC (Area Under the Curve) is : ' + str(score) + '%')
-        st.subheader('Confusion matrix')
-        st.write('Confusion matrix indicates the actual values vs. predicted values and summarize the true negative, false positive, false negative and true positive values in a matrix format.')
-        fig1 = plt.figure(figsize=(10, 4))
-        model = result_df.Model[result_df.Model==selectmodel]
-        cm = cm_list[model_list.index(model.values)]
-        ax = sns.heatmap(cm / np.sum(cm), annot=True,
-                         fmt='.2%', cmap='Blues')
-        ax.set_title('Confusion Matrix ')
-        ax.set_xlabel('Predicted Values')
-        ax.set_ylabel('Actual Values ')
-        ## Ticket labels - List must be in alphabetical order
-        ax.xaxis.set_ticklabels(['False', 'True'])
-        ax.yaxis.set_ticklabels(['False', 'True'])
-        ## Display the visualization of the Confusion Matrix.
-        st.pyplot(fig1)
+
+        if st.checkbox('Show me Model details'):
+            st.subheader('Accuracy')
+            st.write('Accuracy is the most straightforward indicator of the model performance. It measure the percentage of accurate predictions: accuracy = (true positive + true negative) / (true positive + false positive + false negative + false positive)')
+            score=float(result_df.Accuracy[result_df.Model==selectmodel])*100
+            st.write(selectmodel + ' model accuracy score with feature scaling and PCA is : ' + str(score) + '%')
+            score=float(result_df.AUC[result_df.Model==selectmodel])*100
+            st.subheader('ROC & AUC')
+            st.write('ROC is the plot of true positive rate against false positive rate at various classification threshold. AUC is the area under the ROC curve, and higher AUC indicates better model performance.')
+            st.write(selectmodel + ' model AUC (Area Under the Curve) is : ' + str(score) + '%')
+            st.subheader('Confusion matrix')
+            st.write('Confusion matrix indicates the actual values vs. predicted values and summarize the true negative, false positive, false negative and true positive values in a matrix format.')
+            fig1 = plt.figure(figsize=(10, 4))
+            model = result_df.Model[result_df.Model==selectmodel]
+            cm = cm_list[model_list.index(model.values)]
+            ax = sns.heatmap(cm / np.sum(cm), annot=True,
+                             fmt='.2%', cmap='Blues')
+            ax.set_title('Confusion Matrix ')
+            ax.set_xlabel('Predicted Values')
+            ax.set_ylabel('Actual Values ')
+            ## Ticket labels - List must be in alphabetical order
+            ax.xaxis.set_ticklabels(['False', 'True'])
+            ax.yaxis.set_ticklabels(['False', 'True'])
+            ## Display the visualization of the Confusion Matrix.
+            st.pyplot(fig1)
 
 
 

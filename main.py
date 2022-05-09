@@ -5,11 +5,6 @@ import pandas as pd
 import seaborn as sns
 import pickle
 
-st.set_page_config(
-   page_title="Rupesh Dubey - Web App",
-   page_icon="🧊",
-   layout="wide",
-   initial_sidebar_state="expanded")
 
 import Project1 as P1
 import Project2 as P2
@@ -34,7 +29,7 @@ Projectlist.append('Classification - Decision Tree')
 Projectlist.append('Classification System - Multi Algorithms')
 
 
-if st.checkbox("Projects"):
+if st.checkbox("Projects",key=12):
     Project = st.radio(
         "Select the Project",
         (Projectlist))
