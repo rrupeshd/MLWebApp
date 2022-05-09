@@ -92,13 +92,13 @@ def Pro2():
 
 
 
-        if st.checkbox('Show raw data'):
+        if st.checkbox('Show raw data', key=221):
             st.subheader('Raw data')
             data = load_data1(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', df.shape)
 
-        if st.checkbox('Show me EDA'):
+        if st.checkbox('Show me EDA', key=221):
             st.text("Simple EDA of raw data")
             col1, col2, col3 = st.columns(3)
 

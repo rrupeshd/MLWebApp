@@ -110,13 +110,13 @@ def Pro1():
 	    data.rename(lowercase, axis='columns', inplace=True)
 	    return data
 
-	if st.checkbox('Show raw data'):
+	if st.checkbox('Show raw data', key=121):
 	    st.subheader('Raw data')
 	    data = load_data(10000)
 	    st.dataframe(data)
 	    st.write('Shape of dataset:', clean_df.shape)
 
-	if st.checkbox('Show me EDA'):
+	if st.checkbox('Show me EDA', key=122):
 	    st.text("Simple EDA of raw data")
 
 	    bar_df=clean_df.airline.value_counts()

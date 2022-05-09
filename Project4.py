@@ -77,7 +77,7 @@ def Pro4():
             (model_list)
         )
 
-        if st.checkbox('Show me Model details'):
+        if st.checkbox('Show me Model details', key=421):
             st.subheader('Accuracy')
             st.write('Accuracy is the most straightforward indicator of the model performance. It measure the percentage of accurate predictions: accuracy = (true positive + true negative) / (true positive + false positive + false negative + false positive)')
             score=float(result_df.Accuracy[result_df.Model==selectmodel])*100
@@ -104,20 +104,20 @@ def Pro4():
 
 
 
-        if st.checkbox('Show raw data'):
+        if st.checkbox('Show raw data', key=422):
             st.subheader('Raw data')
             data = load_data3(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', dfL.shape)
 
 
-        if st.checkbox('Show All Model Accuracy'):
+        if st.checkbox('Show All Model Accuracy', key=423):
             st.subheader('Results')
             data = result_df
             st.dataframe(data)
             st.write('Shape of dataset:', result_df.shape)
 
-        if st.checkbox('EDA'):
+        if st.checkbox('EDA', key=424):
             st.header("Univariate Analysis")
             fig = plt.figure(figsize=(15, 10))
             i = 0

@@ -29,7 +29,7 @@ Projectlist.append('Classification - Decision Tree')
 Projectlist.append('Classification System - Multi Algorithms')
 
 
-if st.checkbox("Projects",key=12):
+if st.checkbox("Projects", key=12):
     Project = st.radio(
         "Select the Project",
         (Projectlist))

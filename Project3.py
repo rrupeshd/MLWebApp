@@ -116,13 +116,13 @@ def Pro3():
             return data
 
 
-        if st.checkbox('Show raw data'):
+        if st.checkbox('Show raw data', key=321):
             st.subheader('Raw data')
             data = load_data3(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', dfc.shape)
 
-        if st.checkbox('Show Tree diagram', key=12):
+        if st.checkbox('Show Tree diagram', key=322):
             from sklearn import tree
 
             fig = plt.figure(figsize=(10, 4))
