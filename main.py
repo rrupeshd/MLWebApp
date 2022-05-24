@@ -7,6 +7,8 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+
+
 import Project1 as P1
 import Project2 as P2
 import Project3 as P3
@@ -15,7 +17,7 @@ import Project4 as P4
 #st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:")
 menuselected = option_menu(None, ["Home", "Projects", 'About Me'],
     icons=['house', "list-task", 'gear'],
-    menu_icon="cast", default_index=0, orientation="horizontal",key=3)
+    menu_icon="cast", default_index=0, orientation="horizontal",key="3")
 
 st.markdown("""---""")
 

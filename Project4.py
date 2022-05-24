@@ -1,9 +1,6 @@
 
 from main import st,np,plt,pd,sns
 
-Num_list = [*range(41, 51, 1)]
-# convert list to iterator
-iterator_marks = iter(Num_list)
 
 def Pro4():
         st.header('Credit Risk Assessment (Multi ML Model)')
@@ -81,7 +78,7 @@ def Pro4():
             (model_list)
         )
 
-        if st.checkbox('Show me Model details', key=next(iterator_marks)):
+        if st.checkbox('Show me Model details', key="40"):
             st.subheader('Accuracy')
             st.write('Accuracy is the most straightforward indicator of the model performance. It measure the percentage of accurate predictions: accuracy = (true positive + true negative) / (true positive + false positive + false negative + false positive)')
             score=float(result_df.Accuracy[result_df.Model==selectmodel])*100
@@ -108,20 +105,20 @@ def Pro4():
 
 
 
-        if st.checkbox('Show raw data', key=next(iterator_marks)):
+        if st.checkbox('Show raw data', key="41"):
             st.subheader('Raw data')
             data = load_data3(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', dfL.shape)
 
 
-        if st.checkbox('Show All Model Accuracy', key=next(iterator_marks)):
+        if st.checkbox('Show All Model Accuracy', key="42"):
             st.subheader('Results')
             data = result_df
             st.dataframe(data)
             st.write('Shape of dataset:', result_df.shape)
 
-        if st.checkbox('EDA', key=next(iterator_marks)):
+        if st.checkbox('EDA', key="43"):
             st.header("Univariate Analysis")
             fig = plt.figure(figsize=(15, 10))
             i = 0
