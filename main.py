@@ -17,7 +17,7 @@ import Project4 as P4
 #st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:")
 menuselected = option_menu(None, ["Home", "Projects", 'About Me'],
     icons=['house', "list-task", 'gear'],
-    menu_icon="cast", default_index=0, orientation="horizontal",key="3")
+    menu_icon="cast", default_index=0, orientation="horizontal",key="3232")
 
 st.markdown("""---""")
 
