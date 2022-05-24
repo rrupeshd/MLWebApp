@@ -31,7 +31,7 @@ def Pro1():
 	st.title('Flight Price Prediction')
 
 	with st.sidebar:
-	    st.write("Select your choice.")
+		st.write("Select your choice.")
 
 	airline_name = st.sidebar.selectbox(
 	    'Select Airline',
@@ -105,32 +105,32 @@ def Pro1():
 
 
 	def load_data(nrows):
-	    data = pd.read_csv(r'Clean_Dataset.csv', nrows=nrows)
-	    lowercase = lambda x: str(x).lower()
-	    data.rename(lowercase, axis='columns', inplace=True)
-	    return data
+		data = pd.read_csv(r'./data/Clean_Dataset.csv', nrows=nrows)
+		lowercase = lambda x: str(x).lower()
+		data.rename(lowercase, axis='columns', inplace=True)
+		return data
 
-	if st.checkbox('Show raw data', key=121):
-	    st.subheader('Raw data')
-	    data = load_data(10000)
-	    st.dataframe(data)
-	    st.write('Shape of dataset:', clean_df.shape)
+	if st.checkbox('Show raw data', key=12):
+		st.subheader('Raw data')
+		data = load_data(10000)
+		st.dataframe(data)
+		st.write('Shape of dataset:', clean_df.shape)
 
-	if st.checkbox('Show me EDA', key=122):
-	    st.text("Simple EDA of raw data")
+	if st.checkbox('Show me EDA', key=13):
+		st.text("Simple EDA of raw data")
 
-	    bar_df=clean_df.airline.value_counts()
-	    st.bar_chart(bar_df)
-	    airline_avg=clean_df.groupby(['airline'])['price'].mean()
-	    airline_avg=airline_avg.to_frame()
-	    st.area_chart(airline_avg)
+		bar_df=clean_df.airline.value_counts()
+		st.bar_chart(bar_df)
+		airline_avg=clean_df.groupby(['airline'])['price'].mean()
+		airline_avg=airline_avg.to_frame()
+		st.area_chart(airline_avg)
 
-	    st.header("Airline Price from source city")
-	    fig = plt.figure(figsize=(10, 4))
-	    ax=sns.countplot(x="airline",data=clean_df,order=clean_df.airline.value_counts().index)
-	    ax.bar_label(ax.containers[0])
-	    ax.set_xlabel("Top Airlines")
-	    ax.set_ylabel("Number of flights")
+		st.header("Airline Price from source city")
+		fig = plt.figure(figsize=(10, 4))
+		ax=sns.countplot(x="airline",data=clean_df,order=clean_df.airline.value_counts().index)
+		ax.bar_label(ax.containers[0])
+		ax.set_xlabel("Top Airlines")
+		ax.set_ylabel("Number of flights")
 
-	    st.pyplot(fig)
+		st.pyplot(fig)
 

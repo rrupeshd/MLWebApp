@@ -1,47 +1,55 @@
+
 import numpy as np
-import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import pickle
-
+import streamlit as st
+from streamlit_option_menu import option_menu
 
 import Project1 as P1
 import Project2 as P2
 import Project3 as P3
 import Project4 as P4
 
+#st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:")
+menuselected = option_menu(None, ["Home", "Projects", 'About Me'],
+    icons=['house', "list-task", 'gear'],
+    menu_icon="cast", default_index=0, orientation="horizontal",key=3)
+
+st.markdown("""---""")
+
+if menuselected == "Home":
+    st.title(":bar_chart: Welcome To Rupesh Dubey's - Web App!!!")
+    st.markdown("##")
 
 
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        </style>
-        """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
+Projectlist = []
 
-st.title("Welcome To Rupesh Dubey's - Web App!!!")
-
-Projectlist=[]
 Projectlist.append('Predication - Linear Regression')
 Projectlist.append('Predication - RandomForest Regressor')
 Projectlist.append('Classification - Decision Tree')
 Projectlist.append('Classification System - Multi Algorithms')
 
+if menuselected == "Projects":
 
-if st.checkbox("Projects", key=12):
+
     Project = st.radio(
         "Select the Project",
         (Projectlist))
 
-    if Project == 'Predication - Linear Regression': P1.Pro1()
-    if Project == 'Predication - RandomForest Regressor': P2.Pro2()
-    if Project == 'Classification - Decision Tree': P3.Pro3()
-    if Project == 'Classification System - Multi Algorithms': P4.Pro4()
+    if Project == 'Predication - Linear Regression':
+        P1.Pro1()
+    if Project == 'Predication - RandomForest Regressor':
+        P2.Pro2()
+    if Project == 'Classification - Decision Tree':
+        P3.Pro3()
+    if Project == 'Classification System - Multi Algorithms':
+        P4.Pro4()
 
 
 # Create a button, that when clicked, shows a text
-if (st.button("About Me")):
+if (menuselected == "About Me"):
     col11, col12 = st.columns(2)
     with col11:
         pic="https://media-exp1.licdn.com/dms/image/C4D03AQGcObyFZvfRtQ/profile-displayphoto-shrink_400_400/0/1645786089098?e=1654732800&v=beta&t=Xg4P7ieCVtwf5f_H0vIie8TRdVbR2eMdJbqi2bfWOZQ"
@@ -79,4 +87,14 @@ if (st.button("About Me")):
 
     # st.balloons()
 
+
+# ---- HIDE STREAMLIT STYLE ----
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 

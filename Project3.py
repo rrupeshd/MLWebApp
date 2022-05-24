@@ -1,5 +1,6 @@
 from main import st,np,plt,pd,sns
 
+
 def Pro3():
         st.write(
             "This a ML model for classifying safety of car using Decision tree algorithm on demo dataset.")
@@ -116,13 +117,13 @@ def Pro3():
             return data
 
 
-        if st.checkbox('Show raw data', key=321):
+        if st.checkbox('Show raw data', key=32):
             st.subheader('Raw data')
             data = load_data3(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', dfc.shape)
 
-        if st.checkbox('Show Tree diagram', key=322):
+        if st.checkbox('Show Tree diagram', key=33):
             from sklearn import tree
 
             fig = plt.figure(figsize=(10, 4))

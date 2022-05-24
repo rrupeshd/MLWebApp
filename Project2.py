@@ -1,5 +1,6 @@
 from main import st,np,plt,pd,sns,pickle
 
+
 def Pro2():
         st.write("This a ML model for predicting car price using Random Forest regressor with Hyperparameter Tuning on Car Dekho dataset")
 
@@ -92,13 +93,13 @@ def Pro2():
 
 
 
-        if st.checkbox('Show raw data', key=221):
+        if st.checkbox('Show raw data', key=22):
             st.subheader('Raw data')
             data = load_data1(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', df.shape)
 
-        if st.checkbox('Show me EDA', key=221):
+        if st.checkbox('Show me EDA', key=23):
             st.text("Simple EDA of raw data")
             col1, col2, col3 = st.columns(3)
 
