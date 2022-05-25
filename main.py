@@ -4,26 +4,47 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import pickle
+import json
+import requests
 import streamlit as st
-from streamlit_option_menu import option_menu
+from streamlit_option_menu import option_menu as om
+from streamlit_lottie import st_lottie
 
 
+st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:",layout="wide")
 
-import Project1 as P1
-import Project2 as P2
-import Project3 as P3
-import Project4 as P4
-
-#st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:")
-menuselected = option_menu(None, ["Home", "Projects", 'About Me'],
-    icons=['house', "list-task", 'gear'],
-    menu_icon="cast", default_index=0, orientation="horizontal",key="3232")
+menuselected = om(None, ["Home", "Projects", 'About Me'],
+    icons=['house', "list-task", 'bi-person-lines-fill'],
+    menu_icon="cast", default_index=0, orientation="horizontal")
 
 st.markdown("""---""")
 
+
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
 if menuselected == "Home":
-    st.title(":bar_chart: Welcome To Rupesh Dubey's - Web App!!!")
-    st.markdown("##")
+    lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+    # ---- WHAT I DO ----
+    with st.container():
+        left_column, right_column = st.columns(2)
+        with left_column:
+            st.header(":bar_chart: Welcome To Rupesh Dubey's - Web App!!!")
+            st.write("##")
+            st.write(
+                """
+                Hello, welcome to my first web application created using Streamlit on Python. 
+                I will posting some of learnings in Python and Analytics field on the go here.
+                Will keep adding projects on ML and DL frequently. 
+                To contact me please click on About page.                        
+                """
+            )
+            #st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
+        with right_column:
+            st_lottie(lottie_coding, height=300, key="coding")
 
 
 Projectlist = []
@@ -34,35 +55,43 @@ Projectlist.append('Classification - Decision Tree')
 Projectlist.append('Classification System - Multi Algorithms')
 
 if menuselected == "Projects":
-
-
     Project = st.radio(
         "Select the Project",
         (Projectlist))
 
     if Project == 'Predication - Linear Regression':
+        import Project1 as P1
         P1.Pro1()
     if Project == 'Predication - RandomForest Regressor':
+        import Project2 as P2
         P2.Pro2()
     if Project == 'Classification - Decision Tree':
+        import Project3 as P3
         P3.Pro3()
     if Project == 'Classification System - Multi Algorithms':
+        import Project4 as P4
         P4.Pro4()
 
 
 # Create a button, that when clicked, shows a text
 if (menuselected == "About Me"):
+    lottie_hello = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_M9p23l.json")
     col11, col12 = st.columns(2)
     with col11:
         pic="https://media-exp1.licdn.com/dms/image/C4D03AQGcObyFZvfRtQ/profile-displayphoto-shrink_400_400/0/1645786089098?e=1654732800&v=beta&t=Xg4P7ieCVtwf5f_H0vIie8TRdVbR2eMdJbqi2bfWOZQ"
         st.image(pic, caption="Me", output_format="auto")
     with col12:
         with st.container():
-            st.subheader("Hello, welcome to my first web application created using Streamlit on Python.\n Here, "
-                         "I will posting some of learnings in Analytics field on the go. For example last week I learnt about Regression and"
-                         "then about how about presenting it to the users. From that I got the idea of creating this app online. "
-                         "Below are my few online certification done in this field. Also, I have added few projects to test as well. "
-                         "Feel free to explore and play around and do share your feedback.")
+            st_lottie(
+                lottie_hello,
+                speed=1,
+                reverse=False,
+                loop=True,
+                quality="low",  # medium ; high
+                height=None,
+                width=None,
+                key=None,
+            )
 
 
     st.subheader("Certificates")
@@ -88,6 +117,25 @@ if (menuselected == "About Me"):
         st.image(image, caption="Tools for Data Science", output_format="auto")
 
     # st.balloons()
+
+    with st.sidebar:
+        selected = om("Socials", ["LinkedIN", 'Instagram', 'Github','Facebook', 'Email'],
+                               icons=['linkedin', 'instagram', 'facebook', 'github', 'envelope'],
+                               menu_icon="cast", default_index=1)
+
+        if selected == "LinkedIN":
+            link = "[LinkedIN](https://www.linkedin.com/in/rupeshdubey9/)"
+        if selected == "Instagram":
+            link = "[Instagram](https://www.instagram.com/rupeshdubey9/)"
+        if selected == "Github":
+            link = "[Github](https://github.com/rrupeshd)"
+        if selected == "Facebook":
+            link = "[Facebook](https://facebook.com/RrupeshD/)"
+        if selected == "Email":
+            link = "rupeshdubey999@gmail.com"
+
+        st.write(link, unsafe_allow_html=True)
+
 
 
 # ---- HIDE STREAMLIT STYLE ----

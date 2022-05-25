@@ -1,5 +1,10 @@
-from main import st,np,plt,pd,sns,pickle
-
+#from main import st,np,plt,pd,sns,pickle
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import streamlit as st
+import pickle
 
 def Pro2():
         st.write("This a ML model for predicting car price using Random Forest regressor with Hyperparameter Tuning on Car Dekho dataset")
@@ -93,13 +98,13 @@ def Pro2():
 
 
 
-        if st.checkbox('Show raw data', key="22"):
+        if st.checkbox('Show raw data', key="P2_1"):
             st.subheader('Raw data')
             data = load_data1(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', df.shape)
 
-        if st.checkbox('Show me EDA', key="23"):
+        if st.checkbox('Show me EDA', key="P2_2"):
             st.text("Simple EDA of raw data")
             col1, col2, col3 = st.columns(3)
 

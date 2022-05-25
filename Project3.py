@@ -1,4 +1,9 @@
-from main import st,np,plt,pd,sns
+#from main import st,np,plt,pd,sns
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import streamlit as st
 
 
 def Pro3():
@@ -117,13 +122,13 @@ def Pro3():
             return data
 
 
-        if st.checkbox('Show raw data', key="32"):
+        if st.checkbox('Show raw data', key="P3_1"):
             st.subheader('Raw data')
             data = load_data3(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', dfc.shape)
 
-        if st.checkbox('Show Tree diagram', key="33"):
+        if st.checkbox('Show Tree diagram', key="P3_2"):
             from sklearn import tree
 
             fig = plt.figure(figsize=(10, 4))

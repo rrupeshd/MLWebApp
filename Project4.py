@@ -1,5 +1,9 @@
-
-from main import st,np,plt,pd,sns
+#from main import st,np,plt,pd,sns
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import streamlit as st
 
 
 def Pro4():
@@ -78,7 +82,7 @@ def Pro4():
             (model_list)
         )
 
-        if st.checkbox('Show me Model details', key="40"):
+        if st.checkbox('Show me Model details', key="P4_1"):
             st.subheader('Accuracy')
             st.write('Accuracy is the most straightforward indicator of the model performance. It measure the percentage of accurate predictions: accuracy = (true positive + true negative) / (true positive + false positive + false negative + false positive)')
             score=float(result_df.Accuracy[result_df.Model==selectmodel])*100
@@ -105,14 +109,14 @@ def Pro4():
 
 
 
-        if st.checkbox('Show raw data', key="41"):
+        if st.checkbox('Show raw data', key="P4_141"):
             st.subheader('Raw data')
             data = load_data3(1000)
             st.dataframe(data)
             st.write('Shape of dataset:', dfL.shape)
 
 
-        if st.checkbox('Show All Model Accuracy', key="42"):
+        if st.checkbox('Show All Model Accuracy', key="P4_142"):
             st.subheader('Results')
             data = result_df
             st.dataframe(data)

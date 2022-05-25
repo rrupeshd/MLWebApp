@@ -1,4 +1,10 @@
-from main import st,np,plt,pd,sns
+
+#from main import st,np,plt,pd,sns
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import streamlit as st
 
 def Pro1():
 	st.write(
@@ -110,13 +116,13 @@ def Pro1():
 		data.rename(lowercase, axis='columns', inplace=True)
 		return data
 
-	if st.checkbox('Show raw data', key="12"):
+	if st.checkbox('Show raw data', key="P1_1"):
 		st.subheader('Raw data')
 		data = load_data(10000)
 		st.dataframe(data)
 		st.write('Shape of dataset:', clean_df.shape)
 
-	if st.checkbox('Show me EDA', key="13"):
+	if st.checkbox('Show me EDA', key="P1_2"):
 		st.text("Simple EDA of raw data")
 
 		bar_df=clean_df.airline.value_counts()
@@ -127,7 +133,7 @@ def Pro1():
 
 		st.header("Airline Price from source city")
 		fig = plt.figure(figsize=(10, 4))
-		ax=sns.countplot(x="airline",data=clean_df,order=clean_df.airline.value_counts().index)
+		ax=sns.countplot(x="airline", data=clean_df, order=clean_df.airline.value_counts().index)
 		ax.bar_label(ax.containers[0])
 		ax.set_xlabel("Top Airlines")
 		ax.set_ylabel("Number of flights")
