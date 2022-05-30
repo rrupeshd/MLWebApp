@@ -1,24 +1,18 @@
 
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
-import pickle
 import json
 import requests
 import streamlit as st
-from streamlit_option_menu import option_menu as om
+from streamlit_option_menu import option_menu
 from streamlit_lottie import st_lottie
 
 
-st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:",layout="wide")
+st.set_page_config(page_title="Rupesh Dubey", page_icon=":bar_chart:", layout="wide")
 
-menuselected = om(None, ["Home", "Projects", 'About Me'],
-    icons=['house', "list-task", 'bi-person-lines-fill'],
+menuselected = option_menu(None, ["Home", "Projects", 'About Me'],
+    icons= ['house', "list-task", 'bi-person-lines-fill'],
     menu_icon="cast", default_index=0, orientation="horizontal")
 
 st.markdown("""---""")
-
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -37,9 +31,10 @@ if menuselected == "Home":
             st.write(
                 """
                 Hello, welcome to my first web application created using Streamlit on Python. 
-                I will posting some of learnings in Python and Analytics field on the go here.
+                I will be posting some of my learnings in Python and ML in Analytics field on the go here.
                 Will keep adding projects on ML and DL frequently. 
-                To contact me please click on About page.                        
+                
+                To contact me please click on About Me section.                        
                 """
             )
             #st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
@@ -50,7 +45,7 @@ if menuselected == "Home":
 Projectlist = []
 
 Projectlist.append('Predication - Linear Regression')
-Projectlist.append('Predication - RandomForest Regressor')
+Projectlist.append('Predication - RandomForest Regression')
 Projectlist.append('Classification - Decision Tree')
 Projectlist.append('Classification System - Multi Algorithms')
 
@@ -62,7 +57,7 @@ if menuselected == "Projects":
     if Project == 'Predication - Linear Regression':
         import Project1 as P1
         P1.Pro1()
-    if Project == 'Predication - RandomForest Regressor':
+    if Project == 'Predication - RandomForest Regression':
         import Project2 as P2
         P2.Pro2()
     if Project == 'Classification - Decision Tree':
@@ -82,44 +77,36 @@ if (menuselected == "About Me"):
         st.image(pic, caption="Me", output_format="auto")
     with col12:
         with st.container():
-            st_lottie(
-                lottie_hello,
-                speed=1,
-                reverse=False,
-                loop=True,
-                quality="low",  # medium ; high
-                height=None,
-                width=None,
-                key=None,
-            )
-
+            st_lottie(lottie_hello, speed=1, reverse=False, loop=True,
+                    quality="low", height=None, width=None, key=None)
 
     st.subheader("Certificates")
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
+    cimglink="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE"
     with col1:
-        image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~7FLA7JPYU273/CERTIFICATE_LANDING_PAGE~7FLA7JPYU273.jpeg"
+        image=cimglink+"~7FLA7JPYU273/CERTIFICATE_LANDING_PAGE~7FLA7JPYU273.jpeg"
         st.image(image, caption="Python for Data Science, AI & Development", output_format="auto")
     with col2:
-        image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~DZSE9773S8A2/CERTIFICATE_LANDING_PAGE~DZSE9773S8A2.jpeg"
+        image=cimglink+"~DZSE9773S8A2/CERTIFICATE_LANDING_PAGE~DZSE9773S8A2.jpeg"
         st.image(image, caption="SQL for Data Science", output_format="auto")
     with col3:
-        image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~9CLH6FXWBB3G/CERTIFICATE_LANDING_PAGE~9CLH6FXWBB3G.jpeg"
+        image=cimglink+"~9CLH6FXWBB3G/CERTIFICATE_LANDING_PAGE~9CLH6FXWBB3G.jpeg"
         st.image(image, caption="Data Visualization and Communication with Tableau", output_format="auto")
     with col4:
-        image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~NAJL962VEGM5/CERTIFICATE_LANDING_PAGE~NAJL962VEGM5.jpeg"
+        image=cimglink+"~NAJL962VEGM5/CERTIFICATE_LANDING_PAGE~NAJL962VEGM5.jpeg"
         st.image(image, caption="Basic Statistics", output_format="auto")
     with col5:
-        image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~DFU5L2ABS8TD/CERTIFICATE_LANDING_PAGE~DFU5L2ABS8TD.jpeg"
+        image=cimglink+"~DFU5L2ABS8TD/CERTIFICATE_LANDING_PAGE~DFU5L2ABS8TD.jpeg"
         st.image(image, caption="Business Metrics for Data-Driven Companies", output_format="auto")
     with col6:
-        image="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~THW33CM8UBUH/CERTIFICATE_LANDING_PAGE~THW33CM8UBUH.jpeg"
+        image=cimglink+"~THW33CM8UBUH/CERTIFICATE_LANDING_PAGE~THW33CM8UBUH.jpeg"
         st.image(image, caption="Tools for Data Science", output_format="auto")
 
     # st.balloons()
 
     with st.sidebar:
-        selected = om("Socials", ["LinkedIN", 'Instagram', 'Github','Facebook', 'Email'],
+        selected = option_menu("Socials", ["LinkedIN", 'Instagram', 'Github','Facebook', 'Email'],
                                icons=['linkedin', 'instagram', 'facebook', 'github', 'envelope'],
                                menu_icon="cast", default_index=1)
 
@@ -132,10 +119,8 @@ if (menuselected == "About Me"):
         if selected == "Facebook":
             link = "[Facebook](https://facebook.com/RrupeshD/)"
         if selected == "Email":
-            link = "rupeshdubey999@gmail.com"
-
+            link = "Email :- rupeshdubey999@gmail.com"
         st.write(link, unsafe_allow_html=True)
-
 
 
 # ---- HIDE STREAMLIT STYLE ----
