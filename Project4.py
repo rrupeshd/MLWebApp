@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import streamlit as st
-import pandas_profiling as pp
-from streamlit_pandas_profiling import st_profile_report
+#import pandas_profiling as pp
+#from streamlit_pandas_profiling import st_profile_report
 
 def Pro4():
     st.header('Credit Risk Assessment (Multi ML Model)')
@@ -153,13 +153,13 @@ def Pro4():
             sub = fig.add_subplot(1, 3, i + 1)
             chart = sns.boxplot(data=dfL, y=column, x='credit_risk', palette='RdYlBu_r')
         st.pyplot(fig)
-
+"""
     if st.checkbox('Show Pandas Profile', key="P4_144"):
         profile = pp.ProfileReport(df)
         #profile.to_file("./data/output.html")
         st.title("Pandas Profiling in Streamlit")
         st.write(df)
         st_profile_report(profile)
-
+"""
 
 
