@@ -79,7 +79,6 @@ python-dateutil
 pytz
 pytz-deprecation-shim
 PyWavelets
-pywin32
 pywinpty
 PyYAML
 pyzmq
@@ -118,4 +117,3 @@ watchdog
 wcwidth
 webencodings
 widgetsnbextension
-zipp
